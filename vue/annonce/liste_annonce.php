@@ -229,12 +229,13 @@
         $cat = new categorie($annonce->id_categorie, "");
         $marque = $mar->detail($cnx);
         $categ = $cat->detail($cnx);
-
+        $photo= new photo("","","");
+        $photos= $photo-> liste_par_ann($cnx,$annonce->id_an);
 
       ?>
         <div class="col-lg-3">
           <div class="d-block d-md-flex listing vertical">
-            <a href="index.php?controller=annonce&action=det&id_an=<?php echo $annonce->id_an; ?>" class="img d-block" style="background-image: url(ac/images/hero_1.jpg);"> </a>
+            <a href="index.php?controller=annonce&action=det&id_an=<?php echo $annonce->id_an; ?>" class="img d-block" style="background-image: url(photos/<?php echo($photos[0]->nom_photo); ?>);"> </a>
             <div class="lh-content">
               <span class="category"><?php echo $annonce->prix_an; ?> EURO</span>
               <a href="#" class="bookmark"><span class="icon-heart"></span></a>

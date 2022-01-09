@@ -48,7 +48,7 @@ if (isset($_REQUEST["action"]))
     <div class="site-mobile-menu-body"></div>
   </div>
 
-  <header class="site-navbar container py-0 bg-white" role="banner">
+  <header class="site-navbar container py-0 " style="  background-color: rgba(31, 41, 41, 0.5);" role="banner">
 
     <!-- <div class="container"> -->
     <div class="row align-items-center">

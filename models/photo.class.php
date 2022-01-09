@@ -33,6 +33,11 @@ class photo extends fonction{
 		$photos=$cnx->query("select * from photo")->fetchAll(PDO::FETCH_OBJ);
 		return $photos;
 	}
+
+	public function liste_par_ann($cnx,$id_ann){
+		$photos=$cnx->query("select * from photo where id_an='".$id_ann."'")->fetchAll(PDO::FETCH_OBJ);
+		return $photos;
+	}
 	
 	public function detail($cnx){
 		$photo=$cnx->query("select * from photo where id='".$this->id."'")->fetch(PDO::FETCH_OBJ);

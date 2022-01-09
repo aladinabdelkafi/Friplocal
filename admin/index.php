@@ -2,6 +2,14 @@
 session_start();
 include_once 'includes/security.php'; 
 include_once "includes/connexion.php";
+if($_SESSION['id_role']!="1"){
+	header("location:../index.php");
+	exit;
+}
+else{
+    header("location:dashboard.php");
+	exit;
+}
 //initialisation des variables $controller et $action
 $controller = "annonce";
 $action = "add1";

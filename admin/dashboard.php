@@ -1,7 +1,10 @@
 <?php session_start();
-//include_once '../includes/security.php'; 
+include_once '../includes/security.php'; 
 include_once 'includes/connexion.php'; 
-
+if($_SESSION['id_role']!="1"){
+	header("location:../index.php");
+	exit;
+}
 $controller='annonce'; 
 $action='stat';
 
