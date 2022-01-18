@@ -11,7 +11,7 @@ class marque extends fonction{
 	public function add($cnx){
 		$res=$cnx->prepare("insert into marque (nom_marq) values(?)");
 		$res->execute([$this->nom_marq]);
-		$this->redirect("dashboard.php?controller=marque&action=liste");
+		
 	}
 	public function edit($cnx){
 		$res=$cnx->prepare("update marque set nom_marq=? where id=?");
