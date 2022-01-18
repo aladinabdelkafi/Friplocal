@@ -12,8 +12,6 @@ class categorie extends fonction{
 	public function add($cnx){
 		$res=$cnx->prepare("insert into categorie (nom_cat) values(?)");
 		$res->execute([$this->nom_cat]);
-		$this->redirect("dashboard.php?controller=categorie&action=liste");
-		//header("location:index.php?controller=categorie&action=liste");
 	}
 	public function edit($cnx){
 		$cnx->exec("update categorie set nom_cat='".$this->nom_cat."' where id='".$this->id."'");

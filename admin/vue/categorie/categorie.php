@@ -10,7 +10,7 @@
                         </h3>
                     </div>
 
-                    <form method="post" action="dashboard.php?controller=categorie&action=add" enctype="multipart/form-data">
+                    <form  enctype="multipart/form-data">
                         <div class="card-body">
 
                             <div class="row">
@@ -22,12 +22,12 @@
                                     </div>
                                 </div>
 
-                                
+
 
                             </div>
                         </div>
                         <div class="card-footer">
-                            <input type="submit" value="Ajouter" class="btn btn-primary float-right">
+                            <input type="button" value="Ajouter" class="btn btn-primary float-right">
                         </div>
                     </form>
                 </div>
@@ -48,5 +48,22 @@
 <script type="text/javascript">
     $(document).ready(function() {
         bsCustomFileInput.init();
+    });
+</script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).on("click", ".btn", function() {
+        console.log(window.location.hostname);
+        var urlString = "controller=categorie&action=add&nom_cat="+document.getElementById("nom_cat").value;
+        $.ajax({
+            url: "dashboard.php",
+            type: "POST",
+            cache: false,
+            data: urlString,
+            success: function(response) {
+                window.location.href = "dashboard.php?controller=categorie&action=liste";
+            }
+        });
     });
 </script>
