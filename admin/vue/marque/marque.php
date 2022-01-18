@@ -22,12 +22,12 @@
                                     </div>
                                 </div>
 
-                                
+
 
                             </div>
                         </div>
                         <div class="card-footer">
-                        <input type="button" value="Ajouter" class="btn btn-primary float-right">
+                            <input type="button" value="Ajouter" class="btn btn-primary float-right">
                         </div>
                     </form>
                 </div>
@@ -54,17 +54,31 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).on("click", ".btn", function() {
-        console.log(window.location.hostname);
-        
-        var urlString = "controller=marque&action=add&nom_marq="+document.getElementById("nom_marq").value;
-        $.ajax({
-            url: "dashboard.php",
-            type: "POST",
-            cache: false,
-            data: urlString,
-            success: function(response) {
-                window.location.href = "dashboard.php?controller=marque&action=liste";
-            }
-        });
+        var name = document.getElementById('nom_marq').value;
+        if (name != '') {
+
+            var data = {
+                name: name
+            };
+            var xhttp = new XMLHttpRequest();
+
+            // Set POST method and ajax file path
+            xhttp.open("POST", "dashboard.php?controller=marque&action=add", true);
+
+            // call on request changes state
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    window.location.href = "dashboard.php?controller=marque&action=liste";
+
+                }
+            };
+
+            // Content-type
+            xhttp.setRequestHeader("Content-Type", "application/json");
+
+            // Send request with data
+            xhttp.send(JSON.stringify(data));
+        }
     });
 </script>

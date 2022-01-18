@@ -31,7 +31,9 @@ switch ($action) {
 		break;
 
 	case "add":
-		$cat->add($cnx);
+		$data = json_decode(file_get_contents("php://input"));
+		$name = $data->name;
+		$cat->add($cnx,$name);
 		break;
 
 	case "supp":

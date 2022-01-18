@@ -54,16 +54,21 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).on("click", ".btn", function() {
-        console.log(window.location.hostname);
-        var urlString = "controller=categorie&action=add&nom_cat="+document.getElementById("nom_cat").value;
-        $.ajax({
-            url: "dashboard.php",
-            type: "POST",
-            cache: false,
-            data: urlString,
-            success: function(response) {
-                window.location.href = "dashboard.php?controller=categorie&action=liste";
-            }
-        });
+       
+        var name = document.getElementById('nom_cat').value;
+        if (name != '') {
+            var data = {
+                name: name
+            };
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "dashboard.php?controller=categorie&action=add", true);
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    window.location.href = "dashboard.php?controller=categorie&action=liste";
+                }
+            };
+            xhttp.setRequestHeader("Content-Type", "application/json");
+            xhttp.send(JSON.stringify(data));
+        }
     });
 </script>

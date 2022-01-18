@@ -9,9 +9,9 @@ class categorie extends fonction{
 	}
 	
 
-	public function add($cnx){
+	public function add($cnx,$nom){
 		$res=$cnx->prepare("insert into categorie (nom_cat) values(?)");
-		$res->execute([$this->nom_cat]);
+		$res->execute([$nom]);
 	}
 	public function edit($cnx){
 		$cnx->exec("update categorie set nom_cat='".$this->nom_cat."' where id='".$this->id."'");

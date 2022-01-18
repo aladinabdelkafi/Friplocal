@@ -24,13 +24,15 @@ $mar = new marque($id, $nom_marq);
 
 switch ($action) {
 
-	
+
 	case "add1":
 		include "vue/marque/marque.php";
 		break;
 
 	case "add":
-		$mar->add($cnx);
+		$data = json_decode(file_get_contents("php://input"));
+		$name = $data->name;
+		$mar->add($cnx,$name);
 		break;
 
 	case "supp":
@@ -39,10 +41,10 @@ switch ($action) {
 		break;
 
 	case "liste":
-		$marques = $mar->liste($cnx);
+		//$marques = $mar->liste($cnx);
 		include "vue/marque/liste_marque.php";
 		break;
-
+	
 	case "edit1":
 		$marque = $mar->detail($cnx);
 		include "vue/marque/modifier_marque.php";
