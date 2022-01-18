@@ -64,11 +64,7 @@ class personne extends fonction
 
 	public function detail($cnx)
 	{
-		//echo $this->id;
 		$personne = $cnx->query("select * from personne where id='" . $this->id . "'")->fetch(PDO::FETCH_OBJ);
-		//print_r($personne);
-		//exit();
-
 		return $personne;
 	}
 

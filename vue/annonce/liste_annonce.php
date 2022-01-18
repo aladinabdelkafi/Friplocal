@@ -220,7 +220,7 @@
         <h2 class="font-weight-light text-primary">Annonces à la Une :</h2>
       </div>
     </div>
-    <div class="row mt-5">
+    <div class="row mt-5">-->
       <?php
 
 
