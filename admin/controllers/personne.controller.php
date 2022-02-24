@@ -38,6 +38,9 @@ if(isset($_POST['status']))
 $status=$_POST['status'];
 else $status='non accepte';
 
+if(isset($_POST['id_role']))
+$id_role=$_POST['id_role'];
+
 
 //creation de l'objet
 $pers=new personne($id,$nom_pers,$prenom_pers,$email_pers,$mdp_pers,$tel_pers,$id_role,$status);

@@ -32,8 +32,8 @@ class marque extends fonction{
 		return $marques;
 	}
 	
-	public function detail($cnx,$id_marque){
-		$marque=$cnx->query("select * from marque where id='".$id_marque."'")->fetch(PDO::FETCH_OBJ);
+	public function detaill($cnx){
+		$marque=$cnx->query("select * from marque where id='".$this->id."'")->fetch(PDO::FETCH_OBJ);
 		return $marque;
 	}
 

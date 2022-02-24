@@ -227,7 +227,7 @@
       foreach ($annonces as $annonce) {
         $mar = new marque($annonce->id_marque, "");
         $cat = new categorie($annonce->id_categorie, "");
-        $marque = $mar->detail($cnx);
+        $marque = $mar->detaill($cnx);
         $categ = $cat->detail($cnx);
         $photo= new photo("","","");
         $photos= $photo-> liste_par_ann($cnx,$annonce->id_an);

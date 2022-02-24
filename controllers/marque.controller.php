@@ -24,7 +24,7 @@ $mar = new marque($id, $nom_marq);
 
 switch ($action) {
 
-	case "add1":
+	
 	case "add1":
 		include "vue/marque/marque.php";
 		break;
@@ -53,6 +53,6 @@ switch ($action) {
 		break;
 
 	case "detail":
-		$mar->detail($cnx,$id_marque);
+		$mar->detaill($cnx);
 		break;
 }

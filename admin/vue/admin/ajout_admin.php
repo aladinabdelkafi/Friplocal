@@ -66,6 +66,15 @@
                                         <input type="password" class="form-control" id="exampleInputEmail1" placeholder="********" required>
                                     </div>
                                 </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Type utilisateur</label>
+                                        <select class="form-control" name="id_role">
+                                            <option value="2">utilisateur</option>
+                                            <option value="1">administrateur</option>
+                                        </select>
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
